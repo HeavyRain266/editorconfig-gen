@@ -1,4 +1,4 @@
-# String colorizer
+# Helper class to use instead of 'colorize' gem
 class String
   def red
     "\e[31m#{self}\e[0m"
@@ -9,9 +9,9 @@ class String
   end
 end
 
-# Generate configurations
+# TODO: Split into modules? i.e core, langs, envs
 class Generator
-  # Shared
+  # Shared vars
   base = <<~BASE
   root = true
 
@@ -98,10 +98,13 @@ class Generator
   #{twospaces}
   WEB
 
-  # TODO: Add more languages + setup variables for environments
+  # shared file
   @cfg = '.editorconfig'
+
+  # shared error
   @err = 'Error: file .editorconfig already exists and cannot be overwritten.'.red
 
+  # Languages
   def self.lang_rb
     if File.exists?(@cfg)
       puts(@err)
@@ -150,6 +153,7 @@ class Generator
     end
   end
 
+  # Environments
   def self.env_web
     if File.exists?(@cfg)
       puts(@err)

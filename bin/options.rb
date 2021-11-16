@@ -1,14 +1,11 @@
 require 'optionparser'
-require_relative 'generator.rb'
+require_relative '../lib/generator.rb'
 
+# Generator options
 class Options
   OptionParser.new do |opts|
-
-    # Initialize config class
-    Generator.new
-
     help = <<~HELP
-    Generator for Editorconfig
+    .editorconfig generator for various languages and environments
 
     OPTIONS:
       -h,   --help      Prints this message
@@ -31,7 +28,7 @@ class Options
     end
 
     opts.on('-v', '--version') do
-      puts 'v0.2'
+      puts 'v0.3'
     end
 
     opts.on('-r', '--ruby') do
