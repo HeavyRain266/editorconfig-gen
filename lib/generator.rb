@@ -1,4 +1,4 @@
-# String colorizer
+# Helper class to use instead of 'colorize' gem
 class String
   def red
     "\e[31m#{self}\e[0m"
@@ -360,7 +360,7 @@ class Generator
   def self.lang_go
     if File.exists?(@cfg)
       puts(@err)
-    else File.write(@cfg, go)
+    else File.write(@cfg, @go)
       puts 'Success: config for Go has been generated.'.green
     end
   end
