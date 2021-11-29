@@ -16,8 +16,8 @@
 - Go (make)
 - Zig
 - Rust
-- C (cmake)
-- C++ (cmake)
+- C (make)
+- C++ (make)
 - C#
 - F#
 - Kotlin (gradle)
